@@ -133,9 +133,9 @@ CREATE TABLE proprietario(
 );
 
 INSERT INTO proprietario(cd_proprietario, cd_localidade, nm_proprietario, ds_logradouro, ds_complemento,ds_bairro,nr_telefone,ds_email, sg_uf) VALUE
-(1, 1, 'Caio Amaro', 'Rua das Flores, 123', 'Apto 101', 'Salto do Norte', '47999990001', 'caio.amaro@email.com', 'SC'),
-(2, 2, 'Brunna Lima', 'Av. Brasil, 456', 'Casa', 'Centro', '47988880002', 'brunna.lima@email.com', 'SC'),
-(3, 3, 'Lucas Sousa', 'Rua das Palmeiras, 789', '', 'Vila Nova', '47977770003', 'lucas.sousa@email.com', 'SC'),
+(1, 1, 'Caio Amaro', 'Rua das Flores, 123', 'Apto 101', 'Salto do Norte', '47999990001', NULL, 'SC'),
+(2, 2, 'Brunna Lima', 'Av. Brasil, 456', 'Casa', 'Centro', '47988880002', NULL, 'SC'),
+(3, 3, 'Lucas Sousa', 'Rua das Palmeiras, 789', '', 'Vila Nova', NULL, NULL, 'SC'),
 (4, 4, 'Ana Carolina', 'Travessa das Acácias, 12', 'Bloco B', 'Itopava Norte', '47966660004', 'ana.carolina@email.com', 'SC'),
 (5, 5, 'Felipe Melo', 'Rua 7 de Setembro, 345', '', 'Garcia', '47955550005', 'felipe.melo@email.com', 'SC'),
 (6, 6, 'Julia Costa', 'Av. Getúlio Vargas, 987', 'Sala 3', 'Ponte Aguda', '47944440006', 'julia.costa@email.com', 'SC'),
@@ -215,3 +215,29 @@ INSERT INTO veiculo_acessorio(nr_placa, cd_acessorio) VALUE
 ('CVB2H34', 8),
 ('NMK5I67', 9),
 ('XZA8J90', 10);
+
+
+SHOW TABLES;
+SELECT * FROM modelo;
+SELECT * FROM marca;
+SELECT * FROM proprietario;
+
+SELECT * FROM proprietario 
+WHERE 
+ds_email IS NULL
+AND
+nr_telefone IS NOT NULL;
+
+SELECT * FROM veiculo;
+
+SELECT * FROM veiculo WHERE nr_ano_fab > 2015 ORDER BY nr_ano_fab DESC;
+
+SELECT * FROM modelo WHERE  ds_modelo LIKE('F%') ORDER BY ds_modelo DESC;
+
+SELECT * FROM acessorio WHERE LOWER(ds_acessorio) LIKE('%som%'); 
+
+SELECT * FROM proprietario WHERE nr_telefone LIKE('47%');
+
+SELECT * FROM veiculo WHERE qt_portas = 2;
+
+SELECT * FROM veiculo WHERE qt_km_rodado > 100000;
